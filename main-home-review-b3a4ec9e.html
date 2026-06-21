@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf8f5;
+            font-family: 'Georgia', 'Times New Roman', '宋体', 'Songti SC', serif;
+            color: #2e2b28;
+            line-height: 1.75;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            background-color: #fefdfb;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.03), 0 8px 24px rgba(0,0,0,0.04);
+            border-radius: 20px;
+            padding: 2.4rem 2.2rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #3b3632;
+            border-bottom: 1px solid #e4ddd6;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.6rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-top: 2.2rem;
+            margin-bottom: 0.8rem;
+            color: #4e4842;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 1.8rem;
+            margin-bottom: 0.4rem;
+            color: #5c544e;
+        }
+
+        p {
+            margin-bottom: 1.1rem;
+            text-align: justify;
+        }
+
+        a {
+            color: #8b6f55;
+            text-decoration: none;
+            border-bottom: 1px solid #d6c9bd;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #5a4437;
+            border-bottom-color: #5a4437;
+        }
+
+        .hero-note {
+            background-color: #f3efea;
+            border-left: 4px solid #b8a490;
+            padding: 1.2rem 1.6rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.6rem 0 2rem;
+            font-style: normal;
+        }
+
+        .hero-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .pull-quote {
+            font-size: 1.05rem;
+            padding: 0.6rem 1.2rem;
+            margin: 1.2rem 0;
+            color: #4f4944;
+            background: #f6f2ec;
+            border-radius: 6px;
+            border: 1px solid #e3dad2;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-card {
+            background: #f7f4f0;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e7dfd7;
+        }
+
+        .info-card strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: #4a413b;
+        }
+
+        .info-card p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .tip-box {
+            background: #f0ebe4;
+            border-radius: 14px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.8rem 0;
+            border: 1px solid #dbd0c5;
+        }
+
+        .tip-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-preview {
+            list-style: none;
+            margin: 1.2rem 0 0.6rem;
+        }
+
+        .faq-preview li {
+            border-bottom: 1px dashed #ddd6ce;
+            padding: 0.7rem 0;
+        }
+
+        .faq-preview li:last-child {
+            border-bottom: none;
+        }
+
+        .faq-preview strong {
+            color: #4a3f38;
+        }
+
+        .faq-preview .q {
+            color: #6e6057;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2d9d0;
+            margin: 2rem 0 1.2rem;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            color: #7d7268;
+            margin-top: 1.8rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ece4dc;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0.8rem;
+            }
+            .page-wrap {
+                padding: 1.6rem 1.2rem;
+                border-radius: 14px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-note {
+                padding: 0.8rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <h1>爱游戏 · 稳定入口与说明</h1>
+
+    <p>
+        一个平台的价值，往往体现在它如何被持续、可靠地触及。<a href="https://main-home-aiyouxi.com.cn">爱游戏</a>所扮演的角色，正是这样一个长期维护的站点：它不追求短暂的流量爆发，而是将内容与功能整理为有序的知识库形态，让每一位到来的访客都能找到自己关心的版块。
+    </p>
+
+    <div class="hero-note">
+        <p><strong>关于本页</strong>　这一页并非首页的复制，也不是导航菜单的替代。它更像一份书面说明，帮助你了解爱游戏覆盖了哪些内容区域、信息的组织逻辑，以及如何高效使用这个站点。</p>
+    </div>
+
+    <h2>一、目录感布局：信息的分层与索引</h2>
+    <p>
+        进入站点后，首先映入眼帘的并非密集的推送流，而是一套以卡片和分区构成的索引系统。左侧或顶部区域通常放置主要分类入口——例如游戏资讯、玩法解析、社区动态与工具集合。每个分类下附带简短描述，让你在点开之前就能判断是否匹配自己的需求。这种布局减少了盲目点击，也保留了浏览的余裕。
+    </p>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <strong>资讯 · 观察</strong>
+            <p>行业动态、版本更新、活动预告；叙述克制，不堆砌术语。</p>
+        </div>
+        <div class="info-card">
+            <strong>玩法 · 笔记</strong>
+            <p>机制拆解、关卡思路、实用技巧；更像朋友间的经验分享。</p>
+        </div>
+        <div class="info-card">
+            <strong>社区 · 回声</strong>
+            <p>玩家讨论摘录、创作展示、常见疑问汇总。</p>
+        </div>
+        <div class="info-card">
+            <strong>工具 · 索引</strong>
+            <p>模拟器、计算器、资源对照表；轻量且可直接使用。</p>
+        </div>
+    </div>
+
+    <h2>二、说明区：写在内容之前</h2>
+    <p>
+        在每个主要分区内部，你会看到一段简短的「说明」或「关于本区」的文字。这不是装饰，而是帮助读者建立心理模型：这块内容是为谁准备的？它更新频率如何？是否有前置阅读要求？例如玩法笔记区会注明「部分内容基于特定版本，请以游戏内实际表现为准」。这种说明虽然简短，却能避免很多误解。
+    </p>
+
+    <div class="pull-quote">
+        “好的说明像一张地图的图例——它不告诉你往哪走，但让你看懂脚下的路。”
+    </div>
+
+    <h2>三、提示区：常见疑惑与轻量指引</h2>
+    <p>
+        在页面中下部，设计了专门用于存放提示的区域。这些提示不是通知弹窗，而是以嵌入框的形式安静地放在那里。比如：
+    </p>
+
+    <div class="tip-box">
+        <p><strong>提示</strong> 如果你发现某个链接失效或内容与预期不符，可以在「社区·回声」分区下找到反馈入口。站内大部分外部资源链接都经过人工核对，但网络环境变化可能导致个别资源不可用——遇到时请不必着急，通常有其他路径可以到达同一份内容。</p>
+    </div>
+
+    <p>
+        此外，在移动端浏览时，部分卡片会合并为纵向排列，但说明区始终保持在靠近顶部的位置，方便随时参考。
+    </p>
+
+    <h2>四、相关信息区：FAQ 摘要与延伸阅读</h2>
+    <p>
+        在不增加页面复杂度的前提下，我们在页面底部放置了 FAQ 摘要。这里只列出最常被问到的三个问题，完整的问答列表可以在站内「帮助」分区找到。
+    </p>
+
+    <ul class="faq-preview">
+        <li><span class="q"><strong>Q：</strong>站内的内容会频繁更新吗？</span><br>大多数分区保持周更或双周更，资讯区的更新频率更高一些。每次更新都会在页面顶部留下小标记。</li>
+        <li><span class="q"><strong>Q：</strong>有些链接指向外部站点，是否安全？</span><br>所有外链都经过筛选，且页面说明中会标注「外部链接」字样。建议你自己也留意网址环境。</li>
+        <li><span class="q"><strong>Q：</strong>我想搬运或引用这里的文章，可以吗？</span><br>大部分原创内容采用知识共享许可，具体条款在每篇文章底部均有说明。引用时请保留出处。</li>
+    </ul>
+
+    <p>
+        延伸阅读方面，每个分类卡片底部有时会附带一两个推荐标题——它们往往是该分区内阅读量适中但口碑较好的文章，不一定是最新的，但能提供更扎实的背景。
+    </p>
+
+    <hr>
+
+    <p>
+        以上便是<a href="https://main-home-aiyouxi.com.cn">爱游戏</a>这个站点在知识库入口方向上的整体介绍。它不追求花哨的交互，而是希望用稳定的结构、克制的说明和清晰的提示，让你每次回来都能快速进入状态。如果你在浏览过程中发现某个分区的内容特别适合自己，不妨把它当作一个常驻的书签——这也是这个入口页面存在的意义之一。
+    </p>
+
+    <div class="footer-note">
+        <span>爱游戏 · 用安静的页面说清楚一件事</span>
+    </div>
+
+</div>
+</body>
+</html>
