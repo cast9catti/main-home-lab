@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料索引 · 信息参考 · 大发娱乐</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #f8f5f0;
+            font-family: system-ui, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', sans-serif;
+            color: #2d2b28;
+            line-height: 1.65;
+            padding: 2rem 1.25rem;
+        }
+
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffcf9;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.03);
+            padding: 2.5rem 2rem;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.75rem; }
+            .wrapper { padding: 1.75rem 1.25rem; }
+        }
+
+        /* 目录式布局 —— 卡片目录 */
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+            gap: 1.25rem;
+            margin: 2rem 0 2.5rem 0;
+        }
+
+        .toc-card {
+            background: #f3efe8;
+            padding: 1.25rem 1rem;
+            border-radius: 20px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .toc-card:hover {
+            background: #ede7dd;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+        }
+
+        .toc-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.4rem;
+            color: #3f3b35;
+        }
+
+        .toc-card p {
+            font-size: 0.9rem;
+            color: #5f5951;
+            line-height: 1.5;
+        }
+
+        .toc-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* 标题层级 */
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #35312b;
+            margin-bottom: 0.25rem;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #7a7268;
+            border-left: 4px solid #d9cfc1;
+            padding-left: 1rem;
+            margin-bottom: 1.75rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 2.2rem 0 0.8rem 0;
+            color: #36302a;
+            border-bottom: 1px solid #e6ddd2;
+            padding-bottom: 0.35rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 0 0 0.4rem 0;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: #3e3a35;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text a {
+            color: #8b6f50;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cbb59e;
+            font-weight: 500;
+        }
+
+        .intro-text a:hover {
+            color: #5f4a36;
+            text-decoration-color: #8b6f50;
+        }
+
+        /* 引用块 / 提示框 */
+        .callout {
+            background: #efebe4;
+            border-left: 6px solid #bfa98c;
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 14px 20px 20px 14px;
+            font-size: 0.98rem;
+            color: #3b3731;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .callout strong {
+            color: #3f3128;
+            font-weight: 600;
+        }
+
+        .info-block {
+            background: #f6f2eb;
+            padding: 1.25rem 1.5rem;
+            border-radius: 18px;
+            margin: 1.6rem 0 2.2rem 0;
+        }
+
+        .info-block h4 {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            color: #4a4239;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-block li {
+            padding: 0.25rem 0 0.25rem 1.6rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="%2390806f" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>') left center no-repeat;
+            background-size: 12px;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.8rem 0;
+        }
+
+        .faq-item {
+            background: #f9f5ee;
+            padding: 0.8rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+        }
+
+        .faq-item span {
+            font-weight: 500;
+            color: #5c5043;
+        }
+
+        .faq-item .q {
+            margin-right: 0.5rem;
+            color: #9b8874;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e6ddd2;
+            font-size: 0.9rem;
+            color: #8b8276;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-note a {
+            color: #7b6b5c;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            padding: 0.5rem 1.6rem;
+            border: 1.5px solid #d3c4b4;
+            background: transparent;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #4f463d;
+            transition: background 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-ghost:hover {
+            background: #e7ddd0;
+            border-color: #b7a591;
+        }
+
+        .scene-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .scene-item {
+            flex: 1 1 180px;
+            background: #f6f1e9;
+            padding: 1rem 1.2rem;
+            border-radius: 20px;
+        }
+
+        .scene-item h4 {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: #4d443b;
+        }
+
+        .scene-item p {
+            font-size: 0.9rem;
+            color: #60574d;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- 标题区 -->
+    <h1>资料整理 · 信息索引</h1>
+    <div class="subhead">基于公开内容与知识型归纳 · 目录式参考</div>
+
+    <!-- 简介段落 + 自然嵌入链接 -->
+    <div class="intro-text">
+        从信息梳理与资料归档的角度，本页围绕<span style="background: #f1ebe2; padding: 0 6px;">大发娱乐</span>搭建了一份简明目录。你可以将下方卡片视为不同内容模块的入口，每个卡片指向一组资料描述。如果需要直接了解品牌本身，可参考 
+        <a href="https://china-dafaent.com">大发娱乐</a> 提供的基础信息。以下内容不构成推荐或评价，仅作资料整理与结构展示。
+    </div>
+
+    <!-- 目录卡片网格（知识库入口） -->
+    <div class="toc-grid">
+        <div class="toc-card">
+            <a href="#">
+                <h3>📋 概况</h3>
+                <p>品牌定位、背景资料与核心简介</p>
+            </a>
+        </div>
+        <div class="toc-card">
+            <a href="#">
+                <h3>📂 服务内容</h3>
+                <p>产品分类、功能模块、特色说明</p>
+            </a>
+        </div>
+        <div class="toc-card">
+            <a href="#">
+                <h3>🔎 常见问题</h3>
+                <p>FAQ 摘要、使用场景与注意事项</p>
+            </a>
+        </div>
+        <div class="toc-card">
+            <a href="#">
+                <h3>🧭 相关信息</h3>
+                <p>延伸阅读、同类资料索引</p>
+            </a>
+        </div>
+        <div class="toc-card">
+            <a href="#">
+                <h3>📎 参考来源</h3>
+                <p>外部链接、文档说明</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- 说明区 -->
+    <h2>资料说明</h2>
+    <p style="margin-bottom:1rem;">
+        以下内容采用卡片与段落结合的方式组织，每个区块代表一类信息。目录卡片中的链接为示意占位，实际索引可依据需求扩展。所有文字均来自公开可查信息及通用知识整理，不包含任何操作引导或诱导性描述。
+    </p>
+    <div class="callout">
+        <strong>📌 提示：</strong> 本页为知识库入口式布局，不直接提供具体服务或下载。如需查阅品牌详情，可通过 
+        <a href="https://china-dafaent.com" style="color:#5f4a36; text-decoration:underline; text-underline-offset:3px;">大发娱乐</a> 
+        了解完整介绍。所有引用均保持客观，不包含主观评价。
+    </div>
+
+    <!-- 特点 & 场景（合并呈现） -->
+    <h2>特点与适用场景</h2>
+    <div class="scene-wrap">
+        <div class="scene-item">
+            <h4>📖 信息归档</h4>
+            <p>将公开资料按类别归档，便于快速查找和横向对比。</p>
+        </div>
+        <div class="scene-item">
+            <h4>🧩 索引结构</h4>
+            <p>采用目录卡片 + 细分区块，适合知识库或参考页。</p>
+        </div>
+        <div class="scene-item">
+            <h4>📊 中性视角</h4>
+            <p>内容不含营销话术或倾向性表述，仅做梳理。</p>
+        </div>
+        <div class="scene-item">
+            <h4>🔁 可扩展</h4>
+            <p>卡片可链接到独立页面或详细文档，适合二次编辑。</p>
+        </div>
+    </div>
+
+    <!-- 信息区块：相关资料 -->
+    <div class="info-block">
+        <h4>📎 相关信息区</h4>
+        <ul>
+            <li>行业资料：数字娱乐领域常见分类与词条参考</li>
+            <li>品牌条目：<a href="https://china-dafaent.com" style="color:#6d5b4b; text-decoration:underline;">大发娱乐</a> —— 基础介绍与公开内容</li>
+            <li>知识库索引：术语、常见问题、对比参考</li>
+            <li>外部链接聚合（示意）：博客、百科、说明文档</li>
+        </ul>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2>FAQ 摘要 · 常见疑问</h2>
+    <div class="faq-summary">
+        <div class="faq-item"><span class="q">Q1</span><span>该页面的主要内容方向？</span> 面向信息整理，适合作为知识库入口页。</div>
+        <div class="faq-item"><span class="q">Q2</span><span>链接指向哪里？</span> 指向品牌公开站，仅作参考，不涉及具体服务。</div>
+        <div class="faq-item"><span class="q">Q3</span><span>卡片中的链接为何是占位符？</span> 保持目录结构示意，实际可替换为对应资料页。</div>
+        <div class="faq-item"><span class="q">Q4</span><span>内容是否实时更新？</span> 本页为静态示例，更新需手动维护。</div>
+    </div>
+
+    <!-- 第二块提示区 -->
+    <div class="callout" style="background: #f2ece4; border-left-color: #b7a48b;">
+        <strong>💡 使用建议：</strong> 可依据此结构扩展二级页面，将每个卡片链接到对应详细内容。整体风格适合内部知识库、资料索引站或帮助中心首页。所有引用均保持客观中立。
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>知识库入口 · 资料索引页</span>
+        <span>
+            <a href="https://china-dafaent.com">大发娱乐</a> 
+            <span style="margin:0 0.5rem; color:#c4b7a8;">·</span> 
+            <span>内容仅供信息参考</span>
+        </span>
+    </div>
+
+</div>
+</body>
+</html>
